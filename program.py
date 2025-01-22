@@ -169,7 +169,7 @@ def charakterystyka_danych_section(data: pd.DataFrame) -> None:
     st.title("Charakterystyka Zbioru Danych")
     st.markdown("""
     Zbiór danych zawiera informacje medyczne, socjo-ekonomiczne oraz diagnozę demencji u pacjentów. 
-    Dane te zostały zaczerpnięte z <a href="https://www.kaggle.com/datasets/brsdincer/alzheimer-features/data" target="_blank" style="color: #007BFF; font-weight: bold;">Kaggle</a>, bazując na badaniach wykorzystujących uczenie maszynowe do analizy demencji
+    Dane te zostały zaczerpnięte z <a href="https://www.kaggle.com/datasets/brsdincer/alzheimer-features/data" target="_blank" style="color: #007BFF; font-weight: bold;">Kaggle</a>, bazując na badaniach wykorzystujących uczenie maszynowe do analizy demencji.
     """, unsafe_allow_html=True)
 
     st.subheader("Zmienna objaśniana (Group)")
@@ -781,14 +781,64 @@ def dokumentacja_section() -> None:
     </p>
 
     <h4>Podział zadań</h4>
-   <ul>
-      <li><strong>Zuzanna Deszcz</strong>: Zainstaluj wymagane pakiety:
-        <pre>pip install -r requirements.txt</pre>
-      </li>
-      <li><strong>Natalia Łyś </strong>: Uruchom aplikację:
-        <pre>streamlit run main.py</pre>
-      </li>
-    </ul>
+        <ul>
+            <li><strong>Osoba 1</strong>:
+                <ul>
+                    <li><strong>Importowanie Bibliotek:</strong>
+                        <ul>
+                            <li>Zaimportowanie niezbędnych bibliotek Pythonowych (<code>streamlit</code>, <code>pandas</code>, <code>numpy</code>, <code>seaborn</code>, <code>matplotlib</code>, <code>scipy</code>, <code>sklearn</code>, <code>shap</code>).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Przetwarzanie Danych:</strong>
+                        <ul>
+                            <li>Wczytywanie danych z pliku CSV.</li>
+                            <li>Mapowanie i przekształcanie danych kategorycznych.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Tworzenie Wizualizacji:</strong>
+                        <ul>
+                            <li>Generowanie wykresów statystycznych i korelacyjnych.</li>
+                            <li>Tworzenie macierzy konfuzji i boxplotów.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sekcje Wprowadzające w Streamlit:</strong>
+                        <ul>
+                            <li>Opracowanie sekcji wprowadzającej i charakterystyki zbioru danych w aplikacji Streamlit.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Osoba 2</strong>:
+                <ul>
+                    <li><strong>Czyszczenie Danych:</strong>
+                        <ul>
+                            <li>Analiza i obsługa braków danych (np. usuwanie, uzupełnianie wartości).</li>
+                            <li>Wykrywanie i analiza wartości odstających (outlierów).</li>
+                        </ul>
+                    </li>
+                    <li><strong>Podział Danych:</strong>
+                        <ul>
+                            <li>Dzielenie danych na zbiory uczący i testowy.</li>
+                            <li>Standaryzacja danych numerycznych.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Trenowanie Modeli Uczenia Maszynowego:</strong>
+                        <ul>
+                            <li>Implementacja i optymalizacja modeli takich jak Drzewa Decyzyjne, SVM, Random Forest.</li>
+                            <li>Użycie GridSearchCV do doboru najlepszych hiperparametrów.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Analiza i Prezentacja Wyników:</strong>
+                        <ul>
+                            <li>Ocena modeli za pomocą metryk (dokładność, precyzja, czułość, F1-score).</li>
+                            <li>Tworzenie i interpretacja wykresów porównawczych.</li>
+                            <li>Implementacja analizy interpretowalności modeli (np. SHAP).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
     
     <h4>Dokumentacja funkcji (docstringi)</h4>
     <p>
