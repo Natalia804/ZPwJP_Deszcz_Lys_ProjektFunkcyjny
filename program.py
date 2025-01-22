@@ -149,7 +149,7 @@ def wprowadzenie_section() -> None:
     <p>
     <strong> Choroba Alzheimera (AD)  </strong> to najbardziej powszechna odmiana demencji. 
     W Europie choroba ta jest głównym skutkiem utraty samodzielności i upośledzenia osób starszych. 
-    Szacuje się ilość chorych na *10 milionów ludzi*.
+    Szacuje się ilość chorych na <strong> 10 milionów ludzi </strong>.
     Zbiór danych zawiera informacje na temat poniżej szerzej objaśnionymi medycznymi
     warunkami, ale również socjoekonomicznymi i diagnozą demencji u pacjenta. Zbiór, z którego korzystamy pochodzi ze stronny 
     <a href="https://www.kaggle.com/datasets/brsdincer/alzheimer-features/data" target="_blank" style="color: #007BFF; font-weight: bold;">Kaggle</a>.
@@ -782,7 +782,7 @@ def dokumentacja_section() -> None:
 
     <h4>Podział zadań</h4>
         <ul>
-            <li><strong>Natalia Łyś</strong>:
+            <li><strong>Zuzanna Deszcz</strong>:
                 <ul>
                     <li><strong>Przetwarzanie Danych:</strong>
                         <ul>
@@ -809,7 +809,7 @@ def dokumentacja_section() -> None:
                     </li>
                 </ul>
             </li>
-            <li><strong>Osoba 2</strong>:
+            <li><strong>Natalia Łyś</strong>:
                 <ul>
                     <li><strong>Podział Danych:</strong>
                         <ul>
