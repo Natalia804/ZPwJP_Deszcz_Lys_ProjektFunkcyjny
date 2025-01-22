@@ -863,7 +863,7 @@ def main() -> None:
 
     # Wczytanie danych tylko raz (jeżeli jeszcze nie ma w session_state)
     if "data" not in st.session_state:
-        data_path = 'alzheimer_features.csv'  # Zmodyfikuj w zależności od swojej ścieżki
+        data_path = 'alzheimer_features.csv'  
         data = wczytaj_dane(data_path)
         data = przygotuj_dane_kategoryczne(data)
         st.session_state["data"] = data
