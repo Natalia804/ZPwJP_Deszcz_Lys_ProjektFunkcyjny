@@ -782,13 +782,8 @@ def dokumentacja_section() -> None:
 
     <h4>Podział zadań</h4>
         <ul>
-            <li><strong>Osoba 1</strong>:
+            <li><strong>Natalia Łyś</strong>:
                 <ul>
-                    <li><strong>Importowanie Bibliotek:</strong>
-                        <ul>
-                            <li>Zaimportowanie niezbędnych bibliotek Pythonowych (<code>streamlit</code>, <code>pandas</code>, <code>numpy</code>, <code>seaborn</code>, <code>matplotlib</code>, <code>scipy</code>, <code>sklearn</code>, <code>shap</code>).</li>
-                        </ul>
-                    </li>
                     <li><strong>Przetwarzanie Danych:</strong>
                         <ul>
                             <li>Wczytywanie danych z pliku CSV.</li>
@@ -806,16 +801,16 @@ def dokumentacja_section() -> None:
                             <li>Opracowanie sekcji wprowadzającej i charakterystyki zbioru danych w aplikacji Streamlit.</li>
                         </ul>
                     </li>
-                </ul>
-            </li>
-            <li><strong>Osoba 2</strong>:
-                <ul>
                     <li><strong>Czyszczenie Danych:</strong>
                         <ul>
                             <li>Analiza i obsługa braków danych (np. usuwanie, uzupełnianie wartości).</li>
                             <li>Wykrywanie i analiza wartości odstających (outlierów).</li>
                         </ul>
                     </li>
+                </ul>
+            </li>
+            <li><strong>Osoba 2</strong>:
+                <ul>
                     <li><strong>Podział Danych:</strong>
                         <ul>
                             <li>Dzielenie danych na zbiory uczący i testowy.</li>
