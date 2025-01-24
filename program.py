@@ -692,7 +692,7 @@ def metody_uczenia_section() -> None:
 
     # Analiza SHAP na przykładzie najlepszego modelu (np. Random Forest)
     st.header("Analiza interpretowalności modelu Random Forest - wartości SHAP")
-    
+    st.markdown("""
     Wykresy SHAP (SHapley Additive exPlanations) są narzędziem do zrozumienia, jak poszczególne cechy wpływają na decyzje modelu. Oto, jak je interpretować i jak korzystać z nich w praktyce:
 
     ---
