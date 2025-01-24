@@ -8,7 +8,7 @@ from scipy.stats import zscore
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (
     accuracy_score,
