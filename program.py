@@ -805,9 +805,9 @@ def dokumentacja_section() -> None:
     <h4>Struktura plików</h4>
     <p>
       <ul>
-        <li><code>program.py</code> – główny plik uruchamiający Streamlit</li>
-        <li><code>alzheimer_features.csv</code> – plik z danymi</li>
-        <li><code>requirements.txt </code> – plik z wymaganymi bibliotekami do funkcjonowania aplikacji</li>
+        <li><code>program.py</code> główny plik uruchamiający Streamlit</li>
+        <li><code>alzheimer_features.csv</code> plik z danymi</li>
+        <li><code>requirements.txt </code> plik z wymaganymi bibliotekami do funkcjonowania aplikacji</li>
       </ul>
     </p>
 
