@@ -692,9 +692,6 @@ def metody_uczenia_section() -> None:
 
     # Analiza SHAP na przykładzie najlepszego modelu (np. Random Forest)
     st.header("Analiza interpretowalności modelu Random Forest - wartości SHAP")
-
-    st.markdown("""
-    # Praktyczny poradnik: Jak interpretować wykresy SHAP?
     
     Wykresy SHAP (SHapley Additive exPlanations) są narzędziem do zrozumienia, jak poszczególne cechy wpływają na decyzje modelu. Oto, jak je interpretować i jak korzystać z nich w praktyce:
 
@@ -704,7 +701,7 @@ def metody_uczenia_section() -> None:
     - **Oś X:** Pokazuje wartości SHAP, które mierzą wpływ danej cechy na wynik modelu:
       - **Po prawej stronie (wartości dodatnie):** Cecha zwiększa wynik modelu (przyczynia się do wyższego prawdopodobieństwa wyniku) - w naszym przypadku zwiększa prawdopodobieństwo zachorowania.
       - **Po lewej stronie (wartości ujemne):** Cecha zmniejsza wynik modelu (zmniejsza prawdopodobieństwo wyniku) - zmniejsza prawdopodobieństwo zachorowania.
-    - **Oś Y:** Lista cech (np. wiek, płeć, poziom edukacji), uporządkowana według ich ważności w modelu.
+    - **Oś Y:** Lista cech uporządkowana według ich ważności w modelu - w naszym przypadku najważnieszje jest MMSE.
     - **Kolor punktów:** Wskazuje wartość cechy:
       - **Czerwony:** Wysoka wartość cechy - w naszym przypadku np. im lepsze wyniki w teście MMSE.
       - **Niebieski:** Niska wartość cechy - gorsze wyniki w teście MMSE.
@@ -762,20 +759,24 @@ def podsumowanie_section() -> None:
     - Krótka interpretacja wyników
     """
     st.title("Podsumowanie i wnioski")
+   st.title("Podsumowanie i wnioski")
     st.markdown("""
     <h4>Najważniejsze obserwacje:</h4>
     <ul>
-    #### **Podsumowanie**: 
-    Projekt miał na celu ekspolarcja zmiennych i ustalenie, które wpływają istotnie na zachorowanie na chorobę Alzheimera. W tym celu wykorzystano modele uczenia maszynowego (SVM, Drzewa decyzyjne, Random Forest) i wybrano najlepszy, który maksymalizuje możliwości przewidywania. Udało się ustalić jakie zmienne najbardziej wpływają na zachororwania i zweryfikować je z dostępna literaturą. 
-    Najsilniejsze efekty widać w przypadku MMSE i nWBV, a is_male, eTIV i SES mają zwykle mniejszy, bardziej zróżnicowany wpływ.
-    - **MMSE** i **nWBV** to najważniejsze wskaźniki. Niskie wyniki w teście poznawczym i mniejsza objętość mózgu wyraźnie zwiększają ryzyko demencji.
-    - **Płeć męska** i **niski SES** to dodatkowe czynniki ryzyka, które sugerują konieczność ukierunkowanego wsparcia.
-    - **eTIV** i inne parametry mózgowe mają umiarkowany wpływ, ale ich monitorowanie może być pomocne w ocenie ryzyka
-     #### **Rekomendacje**: 
-    Z badania udało się uzyskać Wczesna diagnoza i interwencje poprawiające wyniki MMSE mogą znacząco wpłynąć na ograniczenie ryzyka. Regularne badania MRI/CT dla osób z grup ryzyka mogą pomóc w wczesnym wykryciu. Szczególna uwaga na edukację zdrowotną i profilaktykę w tych grupach.
-    Model uwzględnia zarówno cechy biologiczne, jak i społeczne, co sugeruje potrzebę podejścia interdyscyplinarnego w ocenie i prewencji demencji.
+        <li><strong>Podsumowanie</strong></li>
+        <p>Projekt miał na celu eksplorację zmiennych i ustalenie, które z nich istotnie wpływają na zachorowanie na chorobę Alzheimera. W tym celu zastosowano modele uczenia maszynowego (SVM, Drzewa decyzyjne, Random Forest) i wybrano najlepszy (Random forest), który maksymalizuje możliwości przewidywania. Ustalono, jakie zmienne najbardziej wpływają na zachorowania i zweryfikowano je z dostępną literaturą.</p>
+        <p>Najsilniejsze efekty zaobserwowano w przypadku MMSE i nWBV, natomiast zmienne takie jak is_male, eTIV i SES wykazują mniejszy, bardziej zróżnicowany wpływ.</p>
+        <ul>
+            <li><strong>MMSE</strong> i <strong>nWBV</strong> to najważniejsze wskaźniki. Niskie wyniki w teście poznawczym i mniejsza objętość mózgu wyraźnie zwiększają ryzyko demencji.</li>
+            <li><strong>Płeć męska</strong> i <strong>niski SES</strong> to dodatkowe czynniki ryzyka, sugerujące konieczność ukierunkowanego wsparcia.</li>
+            <li><strong>eTIV</strong> i inne parametry mózgowe mają umiarkowany wpływ, ale ich monitorowanie może być pomocne w ocenie ryzyka.</li>
+        </ul>
+        <li><strong>Rekomendacje</strong></li>
+        <p>Wyniki badania wskazują, że wczesna diagnoza oraz interwencje poprawiające wyniki MMSE mogą znacząco wpłynąć na ograniczenie ryzyka. Regularne badania MRI/CT dla osób z grup ryzyka mogą pomóc we wczesnym wykryciu problemów. Szczególną uwagę należy zwrócić na edukację zdrowotną i profilaktykę w tych grupach.</p>
+        <p>Model uwzględnia zarówno cechy biologiczne, jak i społeczne, co sugeruje potrzebę podejścia interdyscyplinarnego w ocenie i prewencji demencji.</p>
     </ul>
     """, unsafe_allow_html=True)
+
 
 
 def dokumentacja_section() -> None:
