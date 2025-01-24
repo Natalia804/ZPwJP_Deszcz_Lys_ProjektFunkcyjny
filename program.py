@@ -759,11 +759,9 @@ def podsumowanie_section() -> None:
     - Krótka interpretacja wyników
     """
     st.title("Podsumowanie i wnioski")
-    st.title("Podsumowanie i wnioski")
     st.markdown("""
-    <h4>Najważniejsze obserwacje:</h4>
+    <h4>Podsumowanie:</h4>
     <ul>
-        <li><strong>Podsumowanie</strong></li>
         <p>Projekt miał na celu eksplorację zmiennych i ustalenie, które z nich istotnie wpływają na zachorowanie na chorobę Alzheimera. W tym celu zastosowano modele uczenia maszynowego (SVM, Drzewa decyzyjne, Random Forest) i wybrano najlepszy (Random forest), który maksymalizuje możliwości przewidywania. Ustalono, jakie zmienne najbardziej wpływają na zachorowania i zweryfikowano je z dostępną literaturą.</p>
         <p>Najsilniejsze efekty zaobserwowano w przypadku MMSE i nWBV, natomiast zmienne takie jak is_male, eTIV i SES wykazują mniejszy, bardziej zróżnicowany wpływ.</p>
         <ul>
@@ -771,7 +769,6 @@ def podsumowanie_section() -> None:
             <li><strong>Płeć męska</strong> i <strong>niski SES</strong> to dodatkowe czynniki ryzyka, sugerujące konieczność ukierunkowanego wsparcia.</li>
             <li><strong>eTIV</strong> i inne parametry mózgowe mają umiarkowany wpływ, ale ich monitorowanie może być pomocne w ocenie ryzyka.</li>
         </ul>
-        <li><strong>Rekomendacje</strong></li>
         <p>Wyniki badania wskazują, że wczesna diagnoza oraz interwencje poprawiające wyniki MMSE mogą znacząco wpłynąć na ograniczenie ryzyka. Regularne badania MRI/CT dla osób z grup ryzyka mogą pomóc we wczesnym wykryciu problemów. Szczególną uwagę należy zwrócić na edukację zdrowotną i profilaktykę w tych grupach.</p>
         <p>Model uwzględnia zarówno cechy biologiczne, jak i społeczne, co sugeruje potrzebę podejścia interdyscyplinarnego w ocenie i prewencji demencji.</p>
     </ul>
