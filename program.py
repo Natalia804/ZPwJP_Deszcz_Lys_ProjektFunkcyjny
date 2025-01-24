@@ -759,7 +759,7 @@ def podsumowanie_section() -> None:
     - Krótka interpretacja wyników
     """
     st.title("Podsumowanie i wnioski")
-   st.title("Podsumowanie i wnioski")
+    st.title("Podsumowanie i wnioski")
     st.markdown("""
     <h4>Najważniejsze obserwacje:</h4>
     <ul>
