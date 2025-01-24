@@ -693,6 +693,23 @@ def metody_uczenia_section() -> None:
     # Analiza SHAP na przykładzie najlepszego modelu (np. Random Forest)
     st.header("Analiza interpretowalności modelu Random Forest - wartości SHAP")
 
+    st.markdown("""
+    # Praktyczny poradnik: Jak interpretować wykresy SHAP?
+    
+    Wykresy SHAP (SHapley Additive exPlanations) są narzędziem do zrozumienia, jak poszczególne cechy wpływają na decyzje modelu. Oto, jak je interpretować i jak korzystać z nich w praktyce:
+
+    ---
+    
+    ## Jak interpretować wykres SHAP?
+    - **Oś X:** Pokazuje wartości SHAP, które mierzą wpływ danej cechy na wynik modelu:
+      - **Po prawej stronie (wartości dodatnie):** Cecha zwiększa wynik modelu (przyczynia się do wyższego prawdopodobieństwa wyniku) - w naszym przypadku zwiększa prawdopodobieństwo zachorowania.
+      - **Po lewej stronie (wartości ujemne):** Cecha zmniejsza wynik modelu (zmniejsza prawdopodobieństwo wyniku) - zmniejsza prawdopodobieństwo zachorowania.
+    - **Oś Y:** Lista cech (np. wiek, płeć, poziom edukacji), uporządkowana według ich ważności w modelu.
+    - **Kolor punktów:** Wskazuje wartość cechy:
+      - **Czerwony:** Wysoka wartość cechy - w naszym przypadku np. im lepsze wyniki w teście MMSE.
+      - **Niebieski:** Niska wartość cechy - gorsze wyniki w teście MMSE.
+    """)
+
     # Tworzenie obiektu SHAP Explainer
     explainer = shap.KernelExplainer(best_rf_model.predict, X_train)
     # Obliczanie wartości SHAP
@@ -715,19 +732,16 @@ def metody_uczenia_section() -> None:
     - **Niskie wyniki MMSE (niebieskie kropki):** Zwiększają prawdopodobieństwo demencji (SHAP > 0), co sugeruje, że obniżenie funkcji poznawczych jest silnie związane z diagnozą demencji.
 
     ### 2. `is_male`
-    Cecha binarna (0/1).  Bycie mężczyzną zwiększa przewidywanie tak samo symetrycznie jak bycie kobietą je obniża.
-    - **Bycie mężczyzną (niebieskie punkty):** Jest powiązane z lekko zwiększonym prawdopodobieństwem demencji.
-    - **Bycie kobietą (czerwone punkty):** Jest powiązane z mniejszym prawdopodobieństwem demencji.
-    - **Wniosek:** Płeć męska może być czynnikiem ryzyka w tym kontekście.
+    - **Mężczyźni (niebieskie punkty):** mają większe prawdopodobieństwo demencji.
+    - **Kobiety (czerwone punkty):** mniejsze prawdopodobieństwo demencji.
+    - **Wniosek:** Płeć męska może być czynnikiem ryzyka w tym kontekście. Wiemy z badań, że ten wniosek jest  nieprawdziwy, a próbka, która została zbadana jest niereprezentatywna.
 
     ### 3. `nWBV`
-    Duży rozrzut wartośc, co oznacza różnorodny (dodatni bądź ujemny) wpływ w zależności od obserwacji.
     - **Niższa objętość mózgu (niebieskie kropki):** Zwiększa ryzyko demencji (SHAP > 0).
     - **Wyższa objętość mózgu (czerwone kropki):** Zmniejsza ryzyko demencji (SHAP < 0).
     - **Wniosek:** Utrata objętości mózgu jest istotnym wskaźnikiem ryzyka demencji.
 
     ### 4. `eTIV`
-    Przewaga punktów blisko zera, często z niewielkim wpływem, czasem lekko ujemnym.
     - **Wpływ eTIV jest mniej wyraźny, ale ogólnie:**
       - Niższe wartości eTIV mogą nieznacznie zwiększać ryzyko demencji.
       - Wyższe wartości eTIV mają łagodny efekt ochronny.
@@ -737,12 +751,6 @@ def metody_uczenia_section() -> None:
     - **Niższy SES (niebieskie punkty):** Zwiększa ryzyko demencji (SHAP > 0).
     - **Wyższy SES (czerwone punkty):** Zmniejsza ryzyko demencji (SHAP < 0).
     - **Wniosek:** Osoby z niższym statusem społeczno-ekonomicznym są bardziej narażone na demencję. Wsparcie dla tej grupy może zmniejszyć ryzyko.
-
-    #### **Podsumowanie**: 
-    Najsilniejsze efekty widać w przypadku MMSE i nWBV, a is_male, eTIV i SES mają zwykle mniejszy, bardziej zróżnicowany wpływ.
-    - **MMSE** i **nWBV** to najważniejsze wskaźniki. Niskie wyniki w MMSE i mniejsza objętość mózgu wyraźnie zwiększają ryzyko demencji.
-    - **Płeć męska** i **niski SES** to dodatkowe czynniki ryzyka, które sugerują konieczność ukierunkowanego wsparcia.
-    - **eTIV** i inne parametry mózgowe mają umiarkowany wpływ, ale ich monitorowanie może być pomocne w ocenie ryzyka
 
     """)
 
@@ -757,8 +765,15 @@ def podsumowanie_section() -> None:
     st.markdown("""
     <h4>Najważniejsze obserwacje:</h4>
     <ul>
+    #### **Podsumowanie**: 
+    Projekt miał na celu ekspolarcja zmiennych i ustalenie, które wpływają istotnie na zachorowanie na chorobę Alzheimera. W tym celu wykorzystano modele uczenia maszynowego (SVM, Drzewa decyzyjne, Random Forest) i wybrano najlepszy, który maksymalizuje możliwości przewidywania. Udało się ustalić jakie zmienne najbardziej wpływają na zachororwania i zweryfikować je z dostępna literaturą. 
+    Najsilniejsze efekty widać w przypadku MMSE i nWBV, a is_male, eTIV i SES mają zwykle mniejszy, bardziej zróżnicowany wpływ.
+    - **MMSE** i **nWBV** to najważniejsze wskaźniki. Niskie wyniki w teście poznawczym i mniejsza objętość mózgu wyraźnie zwiększają ryzyko demencji.
+    - **Płeć męska** i **niski SES** to dodatkowe czynniki ryzyka, które sugerują konieczność ukierunkowanego wsparcia.
+    - **eTIV** i inne parametry mózgowe mają umiarkowany wpływ, ale ich monitorowanie może być pomocne w ocenie ryzyka
+     #### **Rekomendacje**: 
     Z badania udało się uzyskać Wczesna diagnoza i interwencje poprawiające wyniki MMSE mogą znacząco wpłynąć na ograniczenie ryzyka. Regularne badania MRI/CT dla osób z grup ryzyka mogą pomóc w wczesnym wykryciu. Szczególna uwaga na edukację zdrowotną i profilaktykę w tych grupach.
- Model uwzględnia zarówno cechy biologiczne, jak i społeczne, co sugeruje potrzebę podejścia interdyscyplinarnego w ocenie i prewencji demencji.
+    Model uwzględnia zarówno cechy biologiczne, jak i społeczne, co sugeruje potrzebę podejścia interdyscyplinarnego w ocenie i prewencji demencji.
     </ul>
     """, unsafe_allow_html=True)
 
