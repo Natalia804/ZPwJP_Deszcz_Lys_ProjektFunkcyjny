@@ -711,23 +711,39 @@ def metody_uczenia_section() -> None:
     
     st.write("""
     ### 1. `MMSE`
-    Czerwone punkty (wysokie MMSE) na lewo → obniżają przewidywanie. \n\n
-    Niebieskie (niskie MMSE) na prawo → zwiększają przewidywanie.
+    - **Wysokie wyniki MMSE (czerwone kropki):** Obniżają prawdopodobieństwo demencji (SHAP < 0), co oznacza, że dobre wyniki w teście poznawczym chronią przed diagnozą demencji.
+    - **Niskie wyniki MMSE (niebieskie kropki):** Zwiększają prawdopodobieństwo demencji (SHAP > 0), co sugeruje, że obniżenie funkcji poznawczych jest silnie związane z diagnozą demencji.
 
     ### 2. `is_male`
     Cecha binarna (0/1).  Bycie mężczyzną zwiększa przewidywanie tak samo symetrycznie jak bycie kobietą je obniża.
+    - **Bycie mężczyzną (niebieskie punkty):** Jest powiązane z lekko zwiększonym prawdopodobieństwem demencji.
+    - **Bycie kobietą (czerwone punkty):** Jest powiązane z mniejszym prawdopodobieństwem demencji.
+    - **Wniosek:** Płeć męska może być czynnikiem ryzyka w tym kontekście.
 
     ### 3. `nWBV`
     Duży rozrzut wartośc, co oznacza różnorodny (dodatni bądź ujemny) wpływ w zależności od obserwacji.
+    - **Niższa objętość mózgu (niebieskie kropki):** Zwiększa ryzyko demencji (SHAP > 0).
+    - **Wyższa objętość mózgu (czerwone kropki):** Zmniejsza ryzyko demencji (SHAP < 0).
+    - **Wniosek:** Utrata objętości mózgu jest istotnym wskaźnikiem ryzyka demencji.
 
     ### 4. `eTIV`
     Przewaga punktów blisko zera, często z niewielkim wpływem, czasem lekko ujemnym.
+    - **Wpływ eTIV jest mniej wyraźny, ale ogólnie:**
+      - Niższe wartości eTIV mogą nieznacznie zwiększać ryzyko demencji.
+      - Wyższe wartości eTIV mają łagodny efekt ochronny.
+    - **Wniosek:** Warto monitorować eTIV jako dodatkowy wskaźnik.
 
     ### 5. `SES`
-    Punkty przy zerze z drobnym ujemnym efektem, więc niewielkie znaczenie w porównaniu do MMSE czy nWBV.
+    - **Niższy SES (niebieskie punkty):** Zwiększa ryzyko demencji (SHAP > 0).
+    - **Wyższy SES (czerwone punkty):** Zmniejsza ryzyko demencji (SHAP < 0).
+    - **Wniosek:** Osoby z niższym statusem społeczno-ekonomicznym są bardziej narażone na demencję. Wsparcie dla tej grupy może zmniejszyć ryzyko.
 
     #### **Podsumowanie**: 
     Najsilniejsze efekty widać w przypadku MMSE i nWBV, a is_male, eTIV i SES mają zwykle mniejszy, bardziej zróżnicowany wpływ.
+    - **MMSE** i **nWBV** to najważniejsze wskaźniki. Niskie wyniki w MMSE i mniejsza objętość mózgu wyraźnie zwiększają ryzyko demencji.
+    - **Płeć męska** i **niski SES** to dodatkowe czynniki ryzyka, które sugerują konieczność ukierunkowanego wsparcia.
+    - **eTIV** i inne parametry mózgowe mają umiarkowany wpływ, ale ich monitorowanie może być pomocne w ocenie ryzyka
+
     """)
 
 
@@ -741,9 +757,8 @@ def podsumowanie_section() -> None:
     st.markdown("""
     <h4>Najważniejsze obserwacje:</h4>
     <ul>
-      <li><strong>Random Forest</strong> zapewnia najlepsze wyniki równoważące precyzję i czułość.</li>
-      <li>Kluczowe cechy dla modelu to <code>MMSE</code> oraz <code>nWBV</code>.</li>
-      <li>Płeć (<code>is_male</code>) i inne cechy też mają znaczenie, ale mniejsze.</li>
+    Z badania udało się uzyskać Wczesna diagnoza i interwencje poprawiające wyniki MMSE mogą znacząco wpłynąć na ograniczenie ryzyka. Regularne badania MRI/CT dla osób z grup ryzyka mogą pomóc w wczesnym wykryciu. Szczególna uwaga na edukację zdrowotną i profilaktykę w tych grupach.
+ Model uwzględnia zarówno cechy biologiczne, jak i społeczne, co sugeruje potrzebę podejścia interdyscyplinarnego w ocenie i prewencji demencji.
     </ul>
     """, unsafe_allow_html=True)
 
