@@ -535,6 +535,18 @@ def metody_uczenia_section() -> None:
     metrics_df = pd.DataFrame(metrics_data)
 
     st.table(metrics_df)
+    
+    # Wizualizacja drzewa decyzyjnego 
+    st.subheader("Wizualizacja Drzewa Decyzyjnego")
+    fig_tree, ax_tree = plt.subplots(figsize=(15, 8))
+    plot_tree(
+        best_tree_model,
+        feature_names=X_train.columns,
+        class_names=[str(cls) for cls in best_tree_model.classes_],
+        filled=True,
+        ax=ax_tree
+    )
+    st.pyplot(fig_tree)
 
     # ========== SVM ========== #
     st.header("Metoda 2: Support Vector Machines (SVM)")
